@@ -1,6 +1,6 @@
 const { sushiSwapRouterAddress, masterChefAddress, masterChefv2Address } = require("../src/constants");
 const setEventListeners = require("../src/utils/setEventListeners");
-const doTestCase = require("../src/utils/doTestCase");
+const executeTestCase = require("../src/utils/executeTestCase");
 
 describe("sushiSwapChainCaller test", function () {
 
@@ -39,10 +39,10 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 1;
 
     // Executes the test case
-    await doTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, sushiSwapChainCaller.address, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
   });
 
-  it("Should deposit in MasterChefV1 NEAR/WETH LP", async function () {
+  it("Should deposit SLP in MasterChefV1 NEAR/WETH LP", async function () {
 
     console.log("\nEOA address:", signer._address);
     console.log("sushiSwapChainCaller address:", sushiSwapChainCaller.address);
@@ -59,11 +59,11 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 1;
 
     // Executes the test case
-    await doTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, sushiSwapChainCaller.address, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
 
   });
 
-  it("Should deposit in MasterChefV2 WETH/HOP LP", async function () {
+  it("Should deposit SLP in MasterChefV2 WETH/HOP LP", async function () {
 
     console.log("\nEOA address:", signer._address);
     console.log("sushiSwapChainCaller address:", sushiSwapChainCaller.address);
@@ -80,10 +80,10 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 2;
 
     // Executes the test case
-    await doTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, sushiSwapChainCaller.address, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
   });
 
-  it("Should deposit in MasterChefV2 cvxCRV/CRV LP", async function () {
+  it("Should deposit SLP in MasterChefV2 cvxCRV/CRV LP", async function () {
 
     console.log("\nEOA address:", signer._address);
     console.log("sushiSwapChainCaller address:", sushiSwapChainCaller.address);
@@ -100,10 +100,10 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 2;
 
     // Executes the test case
-    await doTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, sushiSwapChainCaller.address, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
   }); 
 
-  it("Should deposit in MasterChefV2 PRIMATE/APE LP", async function () {
+  it("Should deposit SLP in MasterChefV2 PRIMATE/APE LP", async function () {
 
     console.log("\nEOA address:", signer._address);
     console.log("sushiSwapChainCaller address:", sushiSwapChainCaller.address);
@@ -120,6 +120,6 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 2;
 
     // Executes the test case
-    await doTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, sushiSwapChainCaller.address, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
   });    
 });

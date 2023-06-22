@@ -1,17 +1,19 @@
+const { expect } = require("chai");
 const setTestConditions = require("./setTestConditions");
 const retrieveParameters = require("./retrieveParameters");
+const getLiquidityTokensDeposited = require("./getLiquidityTokensDeposited");
 
 function delay(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
-
-async function doTestCase(
+ 
+// Executes the test case  
+async function executeTestCase(
   tokenA,
   tokenAName,
   tokenB,
   tokenBName,
   amountInEthers,
-  sushiSwapChainCallerAddress,
   signer,
   sushiSwapChainCaller, 
   poolParameter, 
@@ -25,7 +27,7 @@ async function doTestCase(
     tokenB,
     tokenBName,
     amountInEthers,
-    sushiSwapChainCallerAddress,
+    sushiSwapChainCaller.address,
     signer
   );
 
@@ -61,10 +63,16 @@ async function doTestCase(
   
   await sushiReceipt.wait();
 
+  // Gets the deposited LP tokens  
+  const depositedLT = await getLiquidityTokensDeposited(masterChefContractVersion, poolPosition, sushiSwapChainCaller.address, signer);
+
+  // Checks if the LP tokens were deposited  
+  expect(depositedLT).to.be.gt(0);
+
   await delay(5000);
 
   // Finish test case
   console.log("\n*** FInish test case ***\n");
 }
 
-module.exports = doTestCase;
+module.exports = executeTestCase;
