@@ -1,0 +1,9 @@
+{
+    "solidity.defaultCompiler": "remote",
+    "solidity.compileUsingRemoteVersion": "v0.8.17+commit.8df45f5f",
+    "solidity.compileUsingLocalVersion": "c:\\Users\\dater\\Mi unidad\\Blockchain\\Solidity_projects\\Sushi_Challenge\\soljson-v0.8.17+commit.8df45f5f.js",
+    "search.exclude": {
+        "": true,
+        "**/node_modules": false
+    }
+}
