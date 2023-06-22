@@ -19,7 +19,7 @@ describe("sushiSwapChainCaller test", function () {
     signer = await provider.getSigner(accounts[0]);
 
     console.log("\nEOA address:", signer._address);
-    console.log("SushiSwapChainCaller address:", SushiSwapChainCaller.address);
+    console.log("SushiSwapChainCaller address:", sushiSwapChainCaller.address);
 
     // Sets event listeners for test verifications 
     await setEventListeners(provider);     
