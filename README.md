@@ -10,7 +10,7 @@ npm install
 
 -- configuration
 
-rename the '.env copy' file to '.env' and add an ALCHEMY key for Ethereum Mainnet
+copy the '.env copy' file to '.env' and add an ALCHEMY key for Ethereum Mainnet
 
 ALCHEMY_API_KEY_PROD = ''
 

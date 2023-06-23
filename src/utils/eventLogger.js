@@ -47,9 +47,6 @@ async function setEventListeners(
     );
 
     if (existingListener) {
-      console.log(
-        "Event listener already exists for the specified contract and event."
-      );
       return;
     }
 

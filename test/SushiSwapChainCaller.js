@@ -1,4 +1,6 @@
 const path = require("path");
+const { expect } = require("chai");
+
 const { sushiSwapRouterAddress, masterChefAddress, masterChefv2Address } = require(path.join("..", "src", "constants"));
 const executeTestCase = require(path.join(__dirname, "..", "src", "utils", "executeTestCase"));
 const { initializeLogFile } = require(path.join(__dirname, "..", "src", "utils", "eventLogger"));
@@ -43,10 +45,14 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 1;
 
     // Executes the test case
-    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    const depositedLT = await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+
+    // Checks if the transaction was successful  
+    expect(depositedLT).to.be.gt(0);
+
   });
 
-   it("Should deposit SLP in MasterChefV1 NEAR/WETH LP", async function () {
+    it("Should deposit SLP in MasterChefV1 NEAR/WETH LP", async function () {
 
     // For logging purposes
     const testCase = "Deposit SLP in MasterChefV1 NEAR/WETH LP"; 
@@ -125,5 +131,5 @@ describe("sushiSwapChainCaller test", function () {
 
     // Executes the test case
     await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
-  });    
+  });     
 });

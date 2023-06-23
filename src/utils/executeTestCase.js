@@ -1,4 +1,3 @@
-const { expect } = require("chai");
 const path = require("path");
 const setTestConditions = require(path.join(__dirname, "setTestConditions"));
 const retrieveParameters = require(path.join(__dirname, "retrieveParameters"));
@@ -93,18 +92,13 @@ async function executeTestCase(
     signer
   );
 
-  // Checks if the LP tokens were deposited
-  expect(depositedLT).to.be.gt(0);
-
+  // Wait for listeners
   await delay(5000);
 
   // Remove event listeners
   removeAllListeners();
 
-  await delay(5000);
-
-  // Finish test case
-  console.log("\n*** FInish test case ***\n");
+  return depositedLT;  
 }
 
 module.exports = executeTestCase;

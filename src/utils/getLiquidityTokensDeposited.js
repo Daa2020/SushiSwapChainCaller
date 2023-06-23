@@ -31,8 +31,8 @@ async function getLiquidityTokensDeposited(
     sushiSwapChainCallerAddress
   );
   console.log(
-    "Liquidity tokens deposited in contract:",
-    userInfo[0].toString()
+    `Liquidity tokens deposited in contract:`,
+    userInfo[0].toString(), `\n`
   );
 
   return userInfo[0];

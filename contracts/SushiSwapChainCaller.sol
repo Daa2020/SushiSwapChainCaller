@@ -2,17 +2,18 @@
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "@sushiswap/core/contracts/uniswapv2/interfaces/IUniswapV2Router02.sol";
+
 
 interface IMasterchef {
     function deposit(uint256 _pid, uint256 _amount) external;
 }
-
 interface IMasterchefv2 {
     function deposit(uint256 _pid, uint256 _amount, address to) external;
 }
 
-contract SushiSwapChainCaller {
+contract SushiSwapChainCaller is Ownable {
     address private immutable sushiSwapRouterAddress;
     address private immutable masterChefAddress;
     address private immutable masterChefv2Address;
@@ -37,7 +38,7 @@ contract SushiSwapChainCaller {
         uint _masterChefVersion,
         address _SLPAddress,
         uint _poolId
-    ) external {
+    ) external onlyOwner {
 
         // Approve the SushiSwap router to use tokens
         IERC20(_tokenAIn).approve(sushiSwapRouterAddress, _ammountAIn);
