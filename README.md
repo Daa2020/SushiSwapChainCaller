@@ -5,8 +5,7 @@ This repository contains a smart contract and test cases designed to automate th
 The smart contract does not include the withdrawal functionality necessary for a complete cycle. 
 
 ## Test Cases
-The test cases are located in the test directory. They ensure the functionality of the smart contract by simulating different scenarios. Each test case covers a specific deposit in either MasterChefV1 or MasterChefV2, using different token pairs. The test cases also include a log file that records events for testing and allows for verification of intermediate calls within the contract.
-The code and test cases in this repository are configured to run in a forked Ethereum mainnet environment. 
+The test cases are located in the test directory. They ensure the functionality of the smart contract by simulating different scenarios. Each test case covers the addition of liquidity to a specific pool and the subsequent deposit, either in MasterChefV1 or MasterChefV2, of the obtained liquidity tokens. This transaction is made using specific token pairs previously stored in the contract. The test cases also include a log file that records events for testing and allows for verification of intermediate calls within the contract. The code and test cases in this repository are configured to run in a forked Ethereum mainnet environment.
 
 ## Installation
 
