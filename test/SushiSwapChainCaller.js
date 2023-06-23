@@ -69,7 +69,10 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 1;
 
     // Executes the test case
-    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    const depositedLT = await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+
+    // Checks if the transaction was successful  
+    expect(depositedLT).to.be.gt(0);
 
   }); 
 
@@ -90,7 +93,10 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 2;
 
     // Executes the test case
-    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    const depositedLT = await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+
+    // Checks if the transaction was successful  
+    expect(depositedLT).to.be.gt(0);
   });
 
   it("Should deposit SLP in MasterChefV2 cvxCRV/CRV LP", async function () {
@@ -110,7 +116,10 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 2;
 
     // Executes the test case
-    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    const depositedLT = await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+
+    // Checks if the transaction was successful  
+    expect(depositedLT).to.be.gt(0);
   }); 
 
   it("Should deposit SLP in MasterChefV2 PRIMATE/APE LP", async function () {
@@ -130,6 +139,9 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 2;
 
     // Executes the test case
-    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    const depositedLT = await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+
+    // Checks if the transaction was successful  
+    expect(depositedLT).to.be.gt(0);
   });     
 });
