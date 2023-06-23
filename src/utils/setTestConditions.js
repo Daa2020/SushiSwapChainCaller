@@ -1,6 +1,7 @@
-const getTokens = require("./getTokens");
-const transferTokens = require("./transferTokens");
-const getTokenBalance = require("./getTokenBalance");
+const path = require("path");
+const getTokens = require(path.join(__dirname, "getTokens"));
+const transferTokens = require(path.join(__dirname, "transferTokens"));
+const getTokenBalance = require(path.join(__dirname, "getTokenBalance"));
 
 // Sets up test conditions
 async function setTestConditions(

@@ -1,5 +1,6 @@
-const { sushiV2FactoryAddress } = require("../constants");
-const findPoolInfoPosition = require("./findPoolInfoPosition");
+const path = require("path");
+const { sushiV2FactoryAddress } = require(path.join(__dirname, "..", "constants"));
+const findPoolInfoPosition = require(path.join(__dirname, "findPoolInfoPosition"));
 const sushiV2FactoryABI = [
   "function getPair(address tokenAAddress, address tokenBAddress) view returns (address)",
 ];

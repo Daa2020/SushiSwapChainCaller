@@ -1,4 +1,5 @@
-const { masterChefAddress, masterChefv2Address } = require("../constants");
+const path = require("path");
+const { masterChefAddress, masterChefv2Address } = require(path.join(__dirname, "..", "constants"));
 
 const masterChefUserInfoABI = [
   "function userInfo(uint256, address) view returns (uint256, uint256)",
@@ -30,7 +31,7 @@ async function getLiquidityTokensDeposited(
     sushiSwapChainCallerAddress
   );
   console.log(
-    "Liquidity tokens deposited in contract: ",
+    "Liquidity tokens deposited in contract:",
     userInfo[0].toString()
   );
 

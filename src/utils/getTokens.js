@@ -1,5 +1,6 @@
-const { sushiSwapRouterAddress } = require("../constants");
-const getTokenBalance = require("./getTokenBalance");
+const path = require("path");
+const { sushiSwapRouterAddress } = require(path.join(__dirname, "..", "constants"));
+const getTokenBalance = require(path.join(__dirname, "getTokenBalance"));
 
 const sushiSwapRouterABI = [
   "function swapExactETHForTokens(uint256 amountOutMin, address[] memory path, address to, uint256 deadline) payable returns (uint256[] memory amounts)" 

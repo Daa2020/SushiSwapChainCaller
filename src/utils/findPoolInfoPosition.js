@@ -67,7 +67,7 @@ async function findPoolInfoPosition(
 
     // Processes the pools array
     const pair = pools.find(
-      (item) => item.pair.toLowerCase() === targetAddress.toLowerCase()
+      (item) => item.pair.toLowerCase() == targetAddress.toLowerCase()
     );
     return pair ? pair.id : -1;
   }

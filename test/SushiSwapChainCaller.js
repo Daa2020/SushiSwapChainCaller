@@ -1,6 +1,7 @@
-const { sushiSwapRouterAddress, masterChefAddress, masterChefv2Address } = require("../src/constants");
-const setEventListeners = require("../src/utils/setEventListeners");
-const executeTestCase = require("../src/utils/executeTestCase");
+const path = require("path");
+const { sushiSwapRouterAddress, masterChefAddress, masterChefv2Address } = require(path.join("..", "src", "constants"));
+const executeTestCase = require(path.join(__dirname, "..", "src", "utils", "executeTestCase"));
+const { initializeLogFile } = require(path.join(__dirname, "..", "src", "utils", "eventLogger"));
 
 describe("sushiSwapChainCaller test", function () {
 
@@ -21,11 +22,14 @@ describe("sushiSwapChainCaller test", function () {
     console.log("\nEOA address:", signer._address);
     console.log("SushiSwapChainCaller address:", sushiSwapChainCaller.address);
 
-    // Sets event listeners for test verifications 
-    await setEventListeners(provider);     
+    // Initialize log file  
+    initializeLogFile();
   });
 
   it("Should deposit in MasterChefV1 LINK/WETH LP", async function () {
+
+    // For logging purposes
+    const testCase = "Deposit SLP in MasterChefV1 LINK/WETH LP";
 
     // Addresses from a MasterchefV1 pool (LINK, WETH)
     const tokenA = "0x514910771AF9Ca656af840dff83E8264EcF986CA"; 
@@ -39,13 +43,13 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 1;
 
     // Executes the test case
-    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
   });
 
-  it("Should deposit SLP in MasterChefV1 NEAR/WETH LP", async function () {
+   it("Should deposit SLP in MasterChefV1 NEAR/WETH LP", async function () {
 
-    console.log("\nEOA address:", signer._address);
-    console.log("sushiSwapChainCaller address:", sushiSwapChainCaller.address);
+    // For logging purposes
+    const testCase = "Deposit SLP in MasterChefV1 NEAR/WETH LP"; 
 
     // Addresses from a MasterchefV1 pool (NEAR, WETH)
     const tokenA = "0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4"; 
@@ -59,14 +63,14 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 1;
 
     // Executes the test case
-    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
 
-  });
+  }); 
 
   it("Should deposit SLP in MasterChefV2 WETH/HOP LP", async function () {
 
-    console.log("\nEOA address:", signer._address);
-    console.log("sushiSwapChainCaller address:", sushiSwapChainCaller.address);
+    // For logging purposes
+    const testCase = "Deposit SLP in MasterChefV2 WETH/HOP LP";  
 
     // Addresses from a MasterchefV2 pool (WETH, HOP)
     const tokenA = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"; 
@@ -80,13 +84,13 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 2;
 
     // Executes the test case
-    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
   });
 
   it("Should deposit SLP in MasterChefV2 cvxCRV/CRV LP", async function () {
 
-    console.log("\nEOA address:", signer._address);
-    console.log("sushiSwapChainCaller address:", sushiSwapChainCaller.address);
+    // For logging purposes
+    const testCase = "Deposit SLP in MasterChefV2 cvxCRV/CRV LP";  
 
     // Addresses from a MasterchefV2 pool (cvxCRV, CRV)
     const tokenA = "0x62B9c7356A2Dc64a1969e19C23e4f579F9810Aa7"; 
@@ -100,13 +104,13 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 2;
 
     // Executes the test case
-    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
   }); 
 
   it("Should deposit SLP in MasterChefV2 PRIMATE/APE LP", async function () {
 
-    console.log("\nEOA address:", signer._address);
-    console.log("sushiSwapChainCaller address:", sushiSwapChainCaller.address);
+    // For logging purposes
+    const testCase = "Deposit SLP in MasterChefV2 PRIMATE/APE LP";   
 
     // Addresses from a MasterchefV2 pool (PRIMATE, APE)
     const tokenA = "0x46e98FFE40E408bA6412bEb670507e083C8B95ff"; 
@@ -120,6 +124,6 @@ describe("sushiSwapChainCaller test", function () {
     const masterchefvXContractVersionParameter = 2;
 
     // Executes the test case
-    await executeTestCase(tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
+    await executeTestCase(testCase, tokenA, tokenAName, tokenB, tokenBName, amountInEthers, signer, sushiSwapChainCaller, poolParameter, masterchefvXContractVersionParameter);
   });    
 });
